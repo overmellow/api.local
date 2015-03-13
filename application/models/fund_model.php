@@ -16,7 +16,7 @@ class Fund_model extends CI_Model {
     
     public function update($id, $user_id, &$data){
         $this->db->where('id', $id);
-        $this->db->where('user_id', $id);
+        $this->db->where('user_id', $user_id);
         return $this->db->update('fund', $data); 
     }
     
@@ -24,8 +24,8 @@ class Fund_model extends CI_Model {
         return $this->db->delete('fund', array('id' => $id, 'user_id' => $user_id)); 
     }
     
-    public function get_all($user_id) {
-        $query = $this->db->get_where('fund', array('user_id' => $user_id));
+    public function get_all() {
+        $query = $this->db->get_where('fund');
         return $query->result_array();
     }
 }
