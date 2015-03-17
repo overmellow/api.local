@@ -5,11 +5,11 @@ class Auth_model extends CI_Model{
         $this->load->database();
     }
     
-    public function validate($email, $password)
+    public function validate($email, $password, $table)
     {      
         $this->db->where('email', $email);
         $this->db->where('password', $password);
-        $query = $this->db->get('user');
+        $query = $this->db->get($table);
         
         if($query->num_rows == 1)
         {
@@ -19,9 +19,9 @@ class Auth_model extends CI_Model{
         return FALSE;
     }
     
-    public function get_user_info($email)
+    public function get_user_info($email, $table)
     {      
-        $query = $this->db->get_where('user', array('email' => $email));
+        $query = $this->db->get_where($table, array('email' => $email));
         return $query->row_array();        
     }   
 }

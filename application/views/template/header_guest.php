@@ -24,19 +24,6 @@
             </button>
             <a class="navbar-brand" href="#">Betterment - Traders</a>
           </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="trade">Trades</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo $email; ?> <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><?php echo anchor('authentication/logout', 'Logout'); ?></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
         </div>
     </nav>
     

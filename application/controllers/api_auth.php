@@ -16,11 +16,11 @@ class Api_auth extends REST_Controller {
     
     function login_post()
     {    
-        $query = $this->auth_model->validate($this->post('email'), $this->post('password'));
+        $query = $this->auth_model->validate($this->post('email'), $this->post('password'), 'user');
          
         if($query)
         {                        
-            $user_info = $this->auth_model->get_user_info($this->post('email'));
+            $user_info = $this->auth_model->get_user_info($this->post('email'), 'user');
             
             $token_id = rand(10,100);
             

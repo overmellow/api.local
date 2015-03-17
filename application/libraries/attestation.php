@@ -19,4 +19,28 @@ class Attestation
         
         return TRUE;
     }
+    
+    public function is_logged_in()
+    {
+        $CI =& get_instance();
+
+        $is_logged_in = $CI->session->userdata('is_logged_in');
+
+        if(!isset($is_logged_in) || $is_logged_in != true)
+        {
+            redirect('authentication/login');
+        }
+    }
+    
+    public function get_user_session_data()
+    {
+        $CI =& get_instance();
+
+        $user = $CI->session->all_userdata();
+
+        if(isset($user))
+        {
+            return $user;
+        }
+    }
 }
